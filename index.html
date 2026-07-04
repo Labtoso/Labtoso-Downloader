@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Downloader | Downloader.labtoso.de</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="glow-dot" aria-hidden="true"></div>
+  <main class="page-shell">
+    <section class="page-title-panel">
+      <h1 class="main-title">Labtoso Downloader</h1>
+    </section>
+
+    <section class="action-card">
+      <form id="downloadForm" class="form-grid">
+        <label class="input-group">
+          <span>LINK:</span>
+          <input id="spotifyInput" type="url" placeholder="example: https://open.spotify.com/track/..." autocomplete="off" required />
+        </label>
+
+        <label class="input-group select-group">
+          <span>Download-Format</span>
+          <div class="select-wrapper">
+            <button id="formatButton" type="button" class="select-button" aria-haspopup="listbox" aria-expanded="false">
+              <span id="formatValue">MP3</span>
+            </button>
+            <ul id="formatOptions" class="select-options" role="listbox" tabindex="-1">
+              <li role="option" data-value="mp3" aria-selected="true">MP3</li>
+              <li role="option" data-value="wav" data-disabled="true" aria-disabled="true">WAV (bald)</li>
+              <li role="option" data-value="aac" data-disabled="true" aria-disabled="true">AAC (bald)</li>
+              <li role="option" data-value="flac" data-disabled="true" aria-disabled="true">FLAC (bald)</li>
+            </ul>
+            <input id="formatValueInput" type="hidden" name="format" value="mp3" />
+          </div>
+        </label>
+
+        <div class="button-row">
+          <button id="downloadButton" type="submit" class="primary-btn">Herunterladen</button>
+        </div>
+      </form>
+
+      <div id="trackPreview" class="track-preview hidden">
+        <img id="trackCover" class="track-cover" src="" alt="Coverbild" />
+        <div class="track-info">
+          <p class="track-title" id="trackMetaTitle">Originaltitel</p>
+          <p class="track-subtitle" id="trackMetaSubtitle">Coverbild und Titel werden hier angezeigt.</p>
+        </div>
+        <div class="platform-blob" aria-hidden="true">
+          <img class="platform-icon" data-platform="spotify" src="assets/spotify.png" alt="spotify" />
+          <img class="platform-icon" data-platform="amazon" src="assets/amazon_music.png" alt="amazon_music" />
+          <img class="platform-icon" data-platform="apple_music" src="assets/apple_music.png" alt="apple_music" />
+          <img class="platform-icon" data-platform="youtube_music" src="assets/youtube_music.png" alt="youtube_music" />
+        </div>
+      </div>
+
+      <div id="statusPanel" class="status-panel">
+        <p class="status-title">Status</p>
+        <p id="statusMessage" class="status-message">Gib deinen Spotify-Share-Link oben ein und wähle MP3.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
